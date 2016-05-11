@@ -1,0 +1,23 @@
+<div class="col-xs-6 col-xs-offset-3">
+
+
+
+  <%= simple_form_for [@restaurant,@review] do |f| %>
+    <% if @review.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <%= f.error_notification %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.input :restaurant_id, :as => :hidden, :input_html => {:value => @restaurant.id} %>
+
+  <%= f.button :submit %>
+<% end %>
+</div>

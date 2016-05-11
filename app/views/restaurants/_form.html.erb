@@ -1,0 +1,24 @@
+<div class="col-xs-6 col-xs-offset-3">
+
+
+
+  <%= simple_form_for(@restaurant) do |f| %>
+    <% if @restaurant.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number%>
+  <%= f.input :category%>
+
+  <%= f.button :submit %>
+<% end %>
+</div>
